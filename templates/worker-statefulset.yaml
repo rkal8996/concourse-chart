@@ -14,6 +14,9 @@ spec:
   {{- if not .Values.concourse.worker.autoscaling.maxReplicas }}
   replicas: {{ .Values.worker.replicas }}
   {{- end }}
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: {{ .Values.concourse.worker.persistentVolumeClaimRetentionPolicy.whenDeleted }}
+    whenScaled: {{ .Values.concourse.worker.persistentVolumeClaimRetentionPolicy.whenScaled }}
   selector:
     matchLabels:
       app: {{ template "concourse.worker.fullname" . }}
