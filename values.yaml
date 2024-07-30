@@ -2423,6 +2423,10 @@ worker:
   ##
   replicas: 2
 
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: "Delete"
+    whenScaled: "Delete"
+
   ## Array of extra containers to run alongside the Concourse worker
   ## container.
   ##
